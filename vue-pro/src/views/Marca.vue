@@ -5,13 +5,14 @@
         <div class="col-8"><input class="put" type="filtro" placeholder="Nome da Especialidade"></div>
       <div class="col-4"><button type="button" class="btn btn-primary btn-lg">Cadastrar</button>
         <div class="btn-group">
-          <button type="button" class="btn btn-secondary dropdown-toggle btn-lg op-btn" data-bs-toggle="dropdown" aria-expanded="false"><!--an on click function should be added-->
+          <button @click="OpenOption()" type="button" class="btn btn-secondary dropdown-toggle btn-lg op-btn" data-bs-toggle="dropdown" aria-expanded="false"><!--an on click function should be added-->
             opcoes
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><button class="dropdown-item" type="button">Action</button></li>
-            <li><button class="dropdown-item" type="button">Another action</button></li>
-            <li><button class="dropdown-item" type="button">Something else here</button></li>
+            <li><button class="dropdown-item" type="button">PESQUISAR</button></li>
+            <li><button class="dropdown-item" type="button">ADICIONAR</button></li>
+            <li><button class="dropdown-item" type="button">EDITAR</button></li>
+            <li><button class="dropdown-item" type="button">DELETAR</button></li>
           </ul>
         </div>
       </div>
@@ -19,6 +20,10 @@
   </div>
 
 </template>
+
+<script>
+
+</script>
 
 <style>
 .container{

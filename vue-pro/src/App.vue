@@ -10,10 +10,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link to="/"><a class="nav-link active" aria-current="page" href="#">HOME</a></router-link>
+          <router-link to="/"><a class="nav-link active" aria-current="page" href="#">MOVIMENTACAO</a></router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/about"><a class="nav-link" href="#">MARCA</a></router-link>
+          <router-link to="/marca"><a class="nav-link" href="#">MARCA</a></router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/"><a class="nav-link active" aria-current="page" href="#">MODELO</a></router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/"><a class="nav-link active" aria-current="page" href="#">VEICULO</a></router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/"><a class="nav-link active" aria-current="page" href="#">CONDUTOR</a></router-link>
         </li>
       </ul>
     </div>
@@ -36,7 +45,7 @@ nav {
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #000000;
 
     &.router-link-exact-active {
       color: #42b983;
