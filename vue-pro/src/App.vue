@@ -10,10 +10,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link to="/"><a class="nav-link active" aria-current="page" href="#">MOVIMENTACAO</a></router-link>
+          <router-link to="/movimentcao"><a class="nav-link" aria-current="page" href="#">MOVIMENTACAO</a></router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/marca"><a class="nav-link" href="#">MARCA</a></router-link>
+          <router-link to="/marca"><a class="nav-link" aria-current="page" href="#">MARCA</a></router-link>
         </li>
         <li class="nav-item">
           <router-link to="/"><a class="nav-link active" aria-current="page" href="#">MODELO</a></router-link>
@@ -23,6 +23,9 @@
         </li>
         <li class="nav-item">
           <router-link to="/"><a class="nav-link active" aria-current="page" href="#">CONDUTOR</a></router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/opcao"><a class="nav-link active" aria-current="page" href="#">OPCAO</a></router-link>
         </li>
       </ul>
     </div>
