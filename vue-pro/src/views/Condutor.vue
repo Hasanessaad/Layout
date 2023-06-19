@@ -1,4 +1,4 @@
-  <template>
+<template>
     <div class="container text-center">
       <div class="row">
         <div class="col-8"><input class="put" type="filtro" placeholder="Cadastra-se a Condutor"></div>
@@ -37,34 +37,35 @@
         </tr>
       </tbody>
     </table>
-  </template>
+</template>
 
 <script lang="ts">
 import Opcao from '../views/Opcao.vue'
-  export default{
-    components: {
-      Opcao
+    export default{
+        name: "Condutor",
+        components: {
+            Opcao
+        }
     }
-  }
 </script>
-  <style>
-  .container{
-    margin-top: 20px;
-  }
-  .btn-options{
-    width: 800px;
-  }
-  .col-8{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  }
-  .put{
-    width: 750px;
-    height: 40px;
-  }
-  .op-btn{
-    margin-left: 10px;
-  }
 
-  </style>
+<style>
+    .container{
+        margin-top: 20px;
+    }
+    .btn-options{
+        width: 800px;
+    }
+    .col-8{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .put{
+        width: 750px;
+        height: 40px;
+    }
+    .op-btn{
+        margin-left: 10px;
+    }
+</style>

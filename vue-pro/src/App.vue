@@ -3,29 +3,26 @@
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">ESTACIONAMENTO</a>
+    <a class="navbar-brand logo" href="#">ESTACIONAMENTO</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link to="/movimentcao"><a class="nav-link" aria-current="page" href="#">MOVIMENTACAO</a></router-link>
+          <router-link to="/movimentacao"><a class="nav-link active" aria-current="page"><h5 class="habibi" :class="{ 'white-text': isMovimentacaoClicked }" @click="clickedonmovimentacao()">MOVIMENTACAO</h5></a></router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/marca"><a class="nav-link" aria-current="page" href="#">MARCA</a></router-link>
+          <router-link to="/marca"><a class="nav-link active" aria-current="page"><h5 class="habibi" :class="{ 'white-text': isMarcaClicked }" @click="clickedonmarca()">MARCA</h5></a></router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/"><a class="nav-link active" aria-current="page" href="#">MODELO</a></router-link>
+          <router-link to="/modelo"><a class="nav-link active" aria-current="page"><h5 class="habibi" :class="{ 'white-text': isModeloClicked }" @click="clickedonmodelo()">MODELO</h5></a></router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/"><a class="nav-link active" aria-current="page" href="#">VEICULO</a></router-link>
+          <router-link to="/veiculo"><a class="nav-link active" aria-current="page"><h5 class="habibi" :class="{ 'white-text': isVeiculoClicked }" @click="clickedonveiculo()">VEICULO</h5></a></router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/"><a class="nav-link active" aria-current="page" href="#">CONDUTOR</a></router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/opcao"><a class="nav-link active" aria-current="page" href="#">OPCAO</a></router-link>
+          <router-link to="/condutor"><a class="nav-link active" aria-current="page"><h5 class="habibi" :class="{ 'white-text': isCondutorClicked }" @click="clickedoncondutor()">CONDUTOR</h5></a></router-link>
         </li>
       </ul>
     </div>
@@ -34,7 +31,61 @@
   <router-view/>
 </template>
 
+<script lang="ts">
+export default {
+  data() {
+    return {
+      isMovimentacaoClicked:false,
+      isCondutorClicked:false,
+      isVeiculoClicked:false,
+      isModeloClicked: false,
+      isMarcaClicked: false
+    };
+  },
+  methods: {
+    clickedonmodelo() {
+      this.isModeloClicked = true;
+      this.isMarcaClicked = false;
+      this.isMovimentacaoClicked = false;
+      this.isCondutorClicked = false;
+      this.isVeiculoClicked = false;
+    },
+    clickedonmarca() {
+      this.isModeloClicked = false;
+      this.isMarcaClicked = true;
+      this.isMovimentacaoClicked = false;
+      this.isCondutorClicked = false;
+      this.isVeiculoClicked = false;
+    },
+    clickedonveiculo(){
+      this.isModeloClicked = false;
+      this.isMarcaClicked = false;
+      this.isMovimentacaoClicked = false;
+      this.isCondutorClicked = false;
+      this.isVeiculoClicked = true;
+    },
+    clickedoncondutor(){
+      this.isModeloClicked = false;
+      this.isMarcaClicked = false;
+      this.isMovimentacaoClicked = false;
+      this.isCondutorClicked = true;
+      this.isVeiculoClicked = false;
+    },
+    clickedonmovimentacao(){
+      this.isModeloClicked = false;
+      this.isMarcaClicked = false;
+      this.isMovimentacaoClicked = true;
+      this.isCondutorClicked = false;
+      this.isVeiculoClicked = false;
+    }
+  }
+};
+</script>
+
 <style lang="scss">
+
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -42,17 +93,20 @@
   text-align: center;
   color: #2c3e50;
 }
+.logo{
+  font-weight: bold;
+}
+.habibi{
+  color: #313131;
+  cursor: pointer;
+  font-family: 'Russo One', sans-serif;
+  font-weight: bold;
+}
+.white-text {
+  color: #083da7;
+}
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #000000;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.habibi:hover{    
+  color: #016c7c;
 }
 </style>
