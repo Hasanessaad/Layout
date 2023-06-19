@@ -11,9 +11,14 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">placa</th>
+          <th scope="col">cor</th>
+          <th scope="col">tipo</th>
+          <th scope="col">ano</th>
+          <th scope="col">modelo</th>
+          <th scope="col">cadastro</th>
+          <th scope="col">ativo</th>
+          <th scope="col">atualizacao</th>
         </tr>
       </thead>
         <tbody>
@@ -22,18 +27,33 @@
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
             </tr>
             <tr>
                 <th scope="row">3</th>
-                <td>Larry</td>
-                <td>Bird</td>
-                <td>@twitter</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
             </tr>
         </tbody>
     </table>
@@ -68,5 +88,4 @@ import Opcao from '../views/Opcao.vue'
   .op-btn{
     margin-left: 10px;
   }
-
   </style>
