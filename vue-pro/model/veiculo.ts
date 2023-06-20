@@ -13,5 +13,7 @@ export class Veiculo extends AbstractEntity {
     constructor(){
         super()
         this.ativo = true
+        this.atualizacao = new Date()
+        this.cadastro = new Date()
     }
 }

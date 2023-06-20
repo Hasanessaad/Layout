@@ -6,7 +6,6 @@
       </div>
     </div>
     <hr>
-    <Opcao />
     <table class="table table-dark table-hover">
       <thead>
         <tr>
@@ -14,6 +13,7 @@
           <th scope="col">First</th>
           <th scope="col">Last</th>
           <th scope="col">Handle</th>
+          <th scope="col">Opcao</th>
         </tr>
       </thead>
       <tbody>
@@ -22,18 +22,21 @@
           <td>Mark</td>
           <td>Otto</td>
           <td>@mdo</td>
+          <td><Opcao /></td>
         </tr>
         <tr>
           <th scope="row">2</th>
           <td>Jacob</td>
           <td>Thornton</td>
           <td>@fat</td>
+          <td><Opcao /></td>
         </tr>
         <tr>
           <th scope="row">3</th>
           <td>Larry</td>
           <td>Bird</td>
           <td>@twitter</td>
+          <td><Opcao /></td>
         </tr>
       </tbody>
     </table>

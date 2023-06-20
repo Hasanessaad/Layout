@@ -6,7 +6,6 @@
       </div>
     </div>
     <hr>
-    <Opcao />
     <table class="table table-dark table-hover">
       <thead>
         <tr>
@@ -17,6 +16,7 @@
           <th scope="col">cadastro</th>
           <th scope="col">ativo</th>
           <th scope="col">atualizacao</th>
+          <th scope="col">Opcao</th>
         </tr>
       </thead>
       <tbody>
@@ -28,6 +28,7 @@
           <td>04/03/2015 12:46 p.m</td>
           <td>sim</td>
           <td>06/07/2017 4:03 p.m</td>
+          <td><Opcao /></td>
         </tr>
         <tr>
           <th scope="row">2</th>
@@ -37,6 +38,7 @@
           <td>04/03/2015 12:46 p.m</td>
           <td>nao</td>
           <td>06/07/2017 4:03 p.m</td>
+          <td><Opcao /></td>
         </tr>
         <tr>
           <th scope="row">3</th>
@@ -46,6 +48,7 @@
           <td>04/03/2015 12:46 p.m</td>
           <td>sim</td>
           <td>06/07/2017 4:03 p.m</td>
+          <td><Opcao /></td>
         </tr>
       </tbody>
     </table>
