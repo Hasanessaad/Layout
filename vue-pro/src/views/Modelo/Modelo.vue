@@ -29,7 +29,10 @@
           <td>04/03/2015 12:46 p.m</td>
           <td>sim</td>
           <td>06/07/2017 4:03 p.m</td>
-          <td><Opcao /></td>
+          <td>    
+            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
+            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
+          </td>
         </tr>
         <tr>
           <th scope="row">2</th>
@@ -39,7 +42,10 @@
           <td>04/03/2015 12:46 p.m</td>
           <td>nao</td>
           <td>06/07/2017 4:03 p.m</td>
-          <td><Opcao /></td>
+          <td>    
+            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
+            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
+          </td>        
         </tr>
         <tr>
           <th scope="row">3</th>
@@ -49,23 +55,22 @@
           <td>04/03/2015 12:46 p.m</td>
           <td>sim</td>
           <td>06/07/2017 4:03 p.m</td>
-          <td><Opcao /></td>
+          <td>    
+            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
+            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
+          </td>
         </tr>
       </tbody>
     </table>
 </template>
 
 <script lang="ts">
-import Opcao from '../views/Opcao.vue'
     export default{
-        name: "Modelo",
-        components: {
-            Opcao
-        }
+        name: "Modelo"
     }
 </script>
 
-<style>
+<style lang="css">
 .cad{
   color: aliceblue;
   text-decoration: none;
@@ -93,4 +98,48 @@ import Opcao from '../views/Opcao.vue'
   .op-btn{
     margin-left: 10px;
   }
+  .choose1{
+  color: aliceblue;
+  background-color: red;
+  border:none;
+  border-radius: 6px;
+  font-weight: bold;
+  height: 30px;
+  transition: all 0.35s 0s;
+}
+.choose1:hover{
+  font-size: larger;
+}
+.option{
+background-color: rgb(19, 6, 69);
+}
+.ayo{
+  padding-top: 5px;
+  color: aliceblue;
+}
+.op{
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  color: aliceblue;
+  font-weight: bold;
+  background-color: rgb(0, 45, 194);
+  border: none;
+}
+.choose{
+  color: black;
+  border:none;
+  border-radius: 6px;
+  font-weight: bold;
+  height: 30px;
+  transition: all 0.35s 0s;
+}
+.choose:hover{
+  font-size: larger;
+}
+.enter{
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
 </style>

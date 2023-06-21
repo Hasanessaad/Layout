@@ -1,12 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Modelo from '../views/Modelo.vue'
-import Movimentacao from '../views/Movimentacao.vue'
-import Veiculo from '../views/Veiculo.vue'
-import Condutor from '../views/Condutor.vue'
-import Opcao from '../views/Opcao.vue'
-import Modeloformedit from '../views/Modeloform-Editar.vue'
-import Modeloformcadastrar from '../views/Modeloform-Cadastrar.vue'
-import Modeloformexcluir from '../views/Marcaform-Excluir.vue'
+import Modelo from '../views/Modelo/Modelo.vue'
+import Movimentacao from '../views/Movimentacao/Movimentacao.vue'
+import Veiculo from '../views/Veiculo/Veiculo.vue'
+import Condutor from '../views/Condutor/Condutor.vue'
+import Modeloformcadastrar from '../views/Modelo/Modeloform-Cadastrar.vue'
+import Marca from '../views/Marca/Marca.vue'
+import Marcaformcadastrar from '../views/Marca/Marcaform-cadastrar.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,28 +18,44 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Modeloformcadastrar',
     component: Modeloformcadastrar,
     children:[
-    {
-      path: '/modeloformedit',
-      name:'Modeloformedit',
-      component: Modeloformedit
-    },
-    {
-      path: '/modeloformexcluir',
-      name:'Modeloformexcluir',
-      component: Modeloformexcluir
-    }
-  ]
-},
+      {
+        path: '/modeloformedit',
+        name:'Modeloformedit',
+        component: () => import('../views/Modelo/Modeloform-Cadastrar.vue')
+      },
+      {
+        path: '/modeloformexcluir',
+        name:'Modeloformexcluir',
+        component: () => import('../views/Modelo/Modeloform-Cadastrar.vue')
+      },
+    ],
+  },
   {
     path: '/movimentacao',
     name: 'Movimentacao',
-    component: Movimentacao  
+    component: Movimentacao
   },
-
   {
     path: '/marca',
-    name: 'marca',
-    component: () => import(/* webpackChunkName: "marca" */'../views/Marca.vue')
+    name: 'Marca',
+    component: Marca,
+  },
+  {
+    path:'/marcaformcadastrar',
+    name:'Marcaformcadastrar',
+    component: Marcaformcadastrar,
+    children: [
+      {
+        path: '/marcaformedit',
+        name:'Marcaformedit',
+        component: () => import(/* webpackChunkName: "marca" */'../views/Marca/Marcaform-cadastrar.vue')
+      },
+      {
+        path:'/marcaformexcluir',
+        name:'Marcaformexcluir',
+        component: () => import(/* webpackChunkName: "marca" */'../views/Marca/Marcaform-cadastrar.vue')
+      }
+    ]
   },
   {
     path: '/veiculo',
@@ -52,11 +67,6 @@ const routes: Array<RouteRecordRaw> = [
     name:'condutor',
     component: Condutor
   },
-  {
-    path: '/opcao',
-    name: 'Opcao',
-    component: Opcao
-  }
 ]
 
 const router = createRouter({

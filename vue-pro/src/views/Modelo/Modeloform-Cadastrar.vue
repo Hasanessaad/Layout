@@ -1,18 +1,36 @@
 <template>
-  <h2>Editar Modelo</h2>
+    <h2>Cadastrar Modelo</h2>
     <hr>
-    <h5>Nome do Modelo</h5>
+    <h5 class="labeling">Nome do Modelo</h5>
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="nome" aria-label="nome" aria-describedby="button-addon2">
     </div>
-    <h5>Ano</h5>
+    <h5 class="labeling">Ano</h5>
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="ano" aria-label="Recipient's username" aria-describedby="button-addon2">
       <button class="btn btn-outline-secondary" type="button" id="button-addon2">Adicionar</button>
+      <router-link to="/modelo"><button class="btn btn-outline-secondary" type="button" id="button-addon2">voltar</button></router-link>
     </div>
 </template>
+
 <script lang="ts">
 export default{
-  name:"Modeloformedit"
+  name:"Modeloformcadastrar"
 }
 </script>
+
+<style>
+.labeling{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 14px;
+  font-weight: bold;
+}
+.card{
+  display: flex;
+  justify-content: center;
+}
+.platform{
+  border: 1px transparent black;
+}
+</style>
