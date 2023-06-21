@@ -1,7 +1,8 @@
 <template>
     <div class="container text-center">
       <div class="row">
-        <div class="col-8"><input class="put" type="filtro" placeholder="Cadastra-se a Condutor"></div>
+        <div class="col-8"><h1>Listar Condutor</h1>
+        </div>
         <div class="col-4"><button type="button" class="btn btn-primary btn-lg">Cadastrar</button></div>
       </div>
     </div>

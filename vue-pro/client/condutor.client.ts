@@ -10,7 +10,7 @@ export class ConductorClient {
 
     constructor(){
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:8082/api/condutor',
+            baseURL: 'http://localhost:8083/api/condutor',
             headers: {'Content-type' : 'application/json'}
         });
     }

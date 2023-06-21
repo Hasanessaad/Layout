@@ -1,13 +1,8 @@
   <template>
     <div class="container text-center">
       <div class="row">
-        <div class="col-8"><input class="put" type="filtro" placeholder="Cadastra-se a Condutor"></div>
+        <div class="col-8"><h1>Listar Marca</h1></div>
         <div class="col-4"><button type="button" class="btn btn-primary btn-lg">Cadastrar</button></div>
-      </div>
-      <h3>Nome da Marca</h3>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="nome" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Adicionar</button>
       </div>
     </div>
     <hr>

@@ -24,10 +24,6 @@
           <li class="nav-item">
             <router-link to="/condutor"><a class="nav-link active" aria-current="page"><h5 class="habibi">CONDUTOR</h5></a></router-link>
           </li>
-          <li class="nav-item">
-            <input class="searching bg-body-secondary" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn bg-dark text-light" type="submit">Search</button>
-          </li>
         </ul>
       </div>
     </div>

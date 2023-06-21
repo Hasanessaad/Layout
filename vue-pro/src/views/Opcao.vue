@@ -1,12 +1,9 @@
 <template>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <select class="op" aria-label=".form-select-lg example">
-      <option class="escolhe">Escolher</option>
-      <option value="1">Editar</option>
-      <option value="2">Deletar</option>
-    </select>
-    <button submit="" class="choose"><a href="" class="enter">Select</a></button>
+    <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
+    <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
+
 </template>
 
 <script lang="ts">
@@ -18,6 +15,18 @@
 </script>
 
 <style lang="css">
+.choose1{
+  color: aliceblue;
+  background-color: red;
+  border:none;
+  border-radius: 6px;
+  font-weight: bold;
+  height: 30px;
+  transition: all 0.35s 0s;
+}
+.choose1:hover{
+  font-size: larger;
+}
 .option{
 background-color: rgb(19, 6, 69);
 }
