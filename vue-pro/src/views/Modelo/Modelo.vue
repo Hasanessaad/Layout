@@ -34,32 +34,6 @@
             <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
           </td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Silverado</td>
-          <td>2015</td>
-          <td>Chevrolet</td>
-          <td>04/03/2015 12:46 p.m</td>
-          <td>nao</td>
-          <td>06/07/2017 4:03 p.m</td>
-          <td>    
-            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-          </td>        
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>M3</td>
-          <td>2017</td>
-          <td>BMW</td>
-          <td>04/03/2015 12:46 p.m</td>
-          <td>sim</td>
-          <td>06/07/2017 4:03 p.m</td>
-          <td>    
-            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-          </td>
-        </tr>
       </tbody>
     </table>
 </template>

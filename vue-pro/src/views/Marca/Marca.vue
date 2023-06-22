@@ -33,28 +33,6 @@
             <router-link :to="{name:'Marcaformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
           </td>  
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Chevrolet</td>
-          <td>01/02/2016 11:23 a.m</td>
-          <td>nao</td>
-          <td>13/09/2017 2:57 p.m</td>
-          <td>    
-            <router-link :to="{name:'Marcaformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Marcaformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-          </td>  
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>BMW</td>
-          <td>07/04/2013 8:22 a.m</td>
-          <td>sim</td>
-          <td>06/03/2014 7:13 p.m</td>
-          <td>    
-            <router-link :to="{name:'Marcaformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Marcaformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-          </td>  
-        </tr>
       </tbody>
     </table>
   </template>

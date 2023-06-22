@@ -8,12 +8,13 @@ import Modeloformcadastrar from '../views/Modelo/Modeloform-Cadastrar.vue'
 import Marcaformcadastrar from '../views/Marca/Marcaform-cadastrar.vue'
 import Condutorformcadastrar from '../views/Condutor/Condutorform-cadastrar.vue'
 import Movimentacaoformcadastrar from '../views/Movimentacao/Movimentacaoform-Cadastrar.vue'
+import Veiculoformcadastrar from '../views/Veiculo/Veiculoform-Cadastrar.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/modelo',
     name: 'Modelo',
-    component: Modelo,
+    component: Modelo
   },
   {
     path: '/modeloformcadastrar',
@@ -29,13 +30,13 @@ const routes: Array<RouteRecordRaw> = [
         path: '/modeloformexcluir',
         name:'Modeloformexcluir',
         component: () => import('../views/Modelo/Modeloform-Cadastrar.vue')
-      },
-    ],
+      }
+    ]
   },
   {
     path: '/movimentacao',
     name: 'Movimentacao',
-    component: Movimentacao,
+    component: Movimentacao
   },
   {
     path:'/movimentacaoformcadastrar',
@@ -44,20 +45,20 @@ const routes: Array<RouteRecordRaw> = [
     children:[
       {
         path:'/movimentacaoformeditar',
-        name:'Movimentacaoformeditar',
+        name:'Movimentacaoformedit',
         component: () => import('../views/Movimentacao/Movimentacaoform-Cadastrar.vue')
       },
       {
         path:'/movimentacaoformexcluir',
         name:'Movimentacaoformexcluir',
         component: () => import('../views/Movimentacao/Movimentacaoform-Cadastrar.vue')
-      },
-    ],
+      }
+    ]
   },
   {
     path: '/marca',
     name: 'Marca',
-    component: Marca,
+    component: Marca
   },
   {
     path:'/marcaformcadastrar',
@@ -73,13 +74,30 @@ const routes: Array<RouteRecordRaw> = [
         path:'/marcaformexcluir',
         name:'Marcaformexcluir',
         component: () => import(/* webpackChunkName: "marca" */'../views/Marca/Marcaform-cadastrar.vue')
-      },
-    ],
+      }
+    ]
   },
   {
     path: '/veiculo',
     name:'Veiculo',
     component: Veiculo
+  },
+  {
+    path: '/veiculoformcadastrar',
+    name: 'Veiculoformcadastrar',
+    component: Veiculoformcadastrar,
+    children:[
+      {
+        path:'/veiculoformedit',
+        name:'Veiculoformedit',
+        component:()=>import('../views/Veiculo/Veiculoform-Cadastrar.vue')
+      },
+      {
+        path:'/veiculoformexcluir',
+        name:'Veiculoformexcluir',
+        component:()=>import('../views/Veiculo/Veiculoform-Cadastrar.vue')
+      }
+    ]
   },
   {
     path:'/condutor',

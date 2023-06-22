@@ -2,7 +2,9 @@
     <div class="container text-center">
       <div class="row">
         <div class="col-8"><h1>Listar veiculo</h1></div>
-        <div class="col-4"><button type="button" class="btn btn-primary btn-lg">Cadastrar</button></div>
+        <div class="col-4">
+          <router-link to="/veiculoformcadastrar"><button type="button" class="btn btn-primary btn-lg">Cadastrar</button></router-link>
+        </div>
       </div>
     </div>
     <hr>
@@ -33,48 +35,18 @@
           <td>nao</td>
           <td>13/09/2017 2:57 p.m</td>
           <td>    
-            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
+            <router-link :to="{name:'Veiculoformedit'}"><button submit="" class="choose">Editar</button></router-link>
+            <router-link :to="{name:'Veiculoformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
           </td>  
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>01/02/2016 11:23 a.m</td>
-          <td>nao</td>
-          <td>13/09/2017 2:57 p.m</td>        
-          <td>    
-            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-          </td>  
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>01/02/2016 11:23 a.m</td>
-          <td>nao</td>
-          <td>13/09/2017 2:57 p.m</td>
-          <td>    
-            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-          </td>              
         </tr>
       </tbody>
     </table>
 </template>
 
 <script lang="ts">
-    export default{
-        name: "Veiculo"
-}
+  export default{
+    name: "Veiculo"
+  }
 </script>
 
 <style lang="css">

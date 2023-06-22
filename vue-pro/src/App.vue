@@ -31,42 +31,40 @@
   <router-view/>
 </template>
 
-<script lang="ts">
-
-</script>
+<script lang="ts"></script>
 
 <style lang="scss">
+  @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
-nav{
-  display: flex;
-  justify-content: space-between;
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-.logo{
-  font-weight: bold;
-}
-.habibi{
-  color: #313131;
-  font-family: 'Russo One', sans-serif;
-}
-.habibi:hover{    
-  font-size: larger;
-  color: #016c7c;
-}
-.search{
-  padding: 4px;
-  width: 100px;
-}
-.searching{
-  border: none;
-  border-radius: 6px;
-  height: 40px;
-}
+  nav{
+    display: flex;
+    justify-content: space-between;
+  }
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+  .logo{
+    font-weight: bold;
+  }
+  .habibi{
+    color: #313131;
+    font-family: 'Russo One', sans-serif;
+  }
+  .habibi:hover{    
+    font-size: larger;
+    color: #016c7c;
+  }
+  .search{
+    padding: 4px;
+    width: 100px;
+  }
+  .searching{
+    border: none;
+    border-radius: 6px;
+    height: 40px;
+  }
 </style>

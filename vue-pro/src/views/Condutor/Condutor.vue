@@ -17,15 +17,23 @@
           <th scope="col">Telefone</th>
           <th scope="col">Tempo_pago</th>
           <th scope="col">Tempo_desconto</th>
-
+          <th scope="col">cadastro</th>
+          <th scope="col">ativo</th>
+          <th scope="col">atualizacao</th>
+          <th scope="col">Opcao</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">1</th>
           <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td>803.048.339-16</td>
+          <td>(11) 95763-1930</td>
+          <td>43R$</td>
+          <td>09/09/2003</td>
+          <td>01/02/2016 11:23 a.m</td>
+          <td>sim</td>
+          <td>13/09/2017 2:57 p.m</td>
 
           <td>    
             <router-link :to="{name:'Condutorformedit'}"><button submit="" class="choose">Editar</button></router-link>
