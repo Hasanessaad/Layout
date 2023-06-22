@@ -3,14 +3,16 @@ import Modelo from '../views/Modelo/Modelo.vue'
 import Movimentacao from '../views/Movimentacao/Movimentacao.vue'
 import Veiculo from '../views/Veiculo/Veiculo.vue'
 import Condutor from '../views/Condutor/Condutor.vue'
-import Modeloformcadastrar from '../views/Modelo/Modeloform-Cadastrar.vue'
 import Marca from '../views/Marca/Marca.vue'
+import Modeloformcadastrar from '../views/Modelo/Modeloform-Cadastrar.vue'
 import Marcaformcadastrar from '../views/Marca/Marcaform-cadastrar.vue'
+import Condutorformcadastrar from '../views/Condutor/Condutorform-cadastrar.vue'
+import Movimentacaoformcadastrar from '../views/Movimentacao/Movimentacaoform-Cadastrar.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/modelo',
-    name: 'modelo',
+    name: 'Modelo',
     component: Modelo,
   },
   {
@@ -33,7 +35,24 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/movimentacao',
     name: 'Movimentacao',
-    component: Movimentacao
+    component: Movimentacao,
+  },
+  {
+    path:'/movimentacaoformcadastrar',
+    name:'Movimentacaoformcadastrar',
+    component: Movimentacaoformcadastrar,
+    children:[
+      {
+        path:'/movimentacaoformeditar',
+        name:'Movimentacaoformeditar',
+        component: () => import('../views/Movimentacao/Movimentacaoform-Cadastrar.vue')
+      },
+      {
+        path:'/movimentacaoformexcluir',
+        name:'Movimentacaoformexcluir',
+        component: () => import('../views/Movimentacao/Movimentacaoform-Cadastrar.vue')
+      },
+    ],
   },
   {
     path: '/marca',
@@ -54,8 +73,8 @@ const routes: Array<RouteRecordRaw> = [
         path:'/marcaformexcluir',
         name:'Marcaformexcluir',
         component: () => import(/* webpackChunkName: "marca" */'../views/Marca/Marcaform-cadastrar.vue')
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/veiculo',
@@ -64,9 +83,26 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path:'/condutor',
-    name:'condutor',
+    name:'Condutor',
     component: Condutor
   },
+  {
+    path: '/condutorformcadastrar',
+    name: 'Condutorformcadastrar',
+    component: Condutorformcadastrar,
+    children:[
+      {
+        path:'/condutorformedit',
+        name:'Condutorformedit',
+        component: () => import('../views/Condutor/Condutorform-cadastrar.vue')
+      },
+      {
+        path:'/condutorformexcluir',
+        name:'Condutorformexcluir',
+        component: () => import('../views/Condutor/Condutorform-cadastrar.vue')
+      }
+    ]
+  }
 ]
 
 const router = createRouter({
