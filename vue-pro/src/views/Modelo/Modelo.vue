@@ -65,9 +65,9 @@
 </template>
 
 <script lang="ts">
-    export default{
-        name: "Modelo"
-    }
+  export default{
+      name: "Modelo"
+  }
 </script>
 
 <style lang="css">

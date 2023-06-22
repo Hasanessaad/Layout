@@ -1,9 +1,10 @@
 <template>
     <div class="container text-center">
       <div class="row">
-        <div class="col-8"><h1>Listar Condutor</h1>
+        <div class="col-8"><h1>Listar Condutor</h1></div>
+        <div class="col-4">
+          <router-link to="/condutorformcadastrar"><button type="button" class="btn btn-primary btn-lg">Cadastrar</button></router-link>
         </div>
-        <div class="col-4"><button type="button" class="btn btn-primary btn-lg">Cadastrar</button></div>
       </div>
     </div>
     <hr>
@@ -16,45 +17,20 @@
           <th scope="col">Telefone</th>
           <th scope="col">Tempo_pago</th>
           <th scope="col">Tempo_desconto</th>
-          <th scope="col">cadastro</th>
-          <th scope="col">ativo</th>
-          <th scope="col">atualizacao</th>
+
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">1</th>
           <td>Mark</td>
-          <td>802.321.343-84</td>
-          <td>(11) 99932-9021</td>
-          <td>321</td>
-          <td>09/09/2003 14:53 p.m</td>
-          
-          
+          <td>Otto</td>
+          <td>@mdo</td>
+
           <td>    
-            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
+            <router-link :to="{name:'Condutorformedit'}"><button submit="" class="choose">Editar</button></router-link>
+            <router-link :to="{name:'Condutorformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
           </td>    
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>    
-            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-          </td>    
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>Bird</td>
-          <td>@twitter</td>
-          <td>    
-            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-          </td>          
         </tr>
       </tbody>
     </table>
