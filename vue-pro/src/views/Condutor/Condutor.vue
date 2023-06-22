@@ -16,14 +16,21 @@
           <th scope="col">Telefone</th>
           <th scope="col">Tempo_pago</th>
           <th scope="col">Tempo_desconto</th>
+          <th scope="col">cadastro</th>
+          <th scope="col">ativo</th>
+          <th scope="col">atualizacao</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">1</th>
           <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td>802.321.343-84</td>
+          <td>(11) 99932-9021</td>
+          <td>321</td>
+          <td>09/09/2003 14:53 p.m</td>
+          
+          
           <td>    
             <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
             <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
