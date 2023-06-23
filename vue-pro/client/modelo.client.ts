@@ -10,7 +10,7 @@ export class ModeloClient {
 
     constructor(){
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:8083/api/modelo',
+            baseURL: 'http://localhost:8082/api/model',
             headers: {'Content-Type' : 'application/json'}
         });
     }
