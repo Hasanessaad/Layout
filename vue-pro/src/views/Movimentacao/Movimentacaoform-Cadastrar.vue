@@ -1,13 +1,9 @@
 <template>
   <h2>Cadastrar Movimentacao</h2>
   <hr>
-  <h5 class="labeling">Nome do Modelo</h5>
+  <h5 class="labeling">Entrada</h5>
   <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="nome" aria-label="nome" aria-describedby="button-addon2">
-  </div>
-  <h5 class="labeling">Ano</h5>
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="ano" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <input type="datetime-local" class="form-control" aria-label="data" aria-describedby="button-addon2" required>
     <button class="btn btn-outline-secondary" type="button" id="button-addon2">Adicionar</button>
     <router-link to="/movimentacao"><button class="btn btn-outline-secondary" type="button" id="button-addon2">voltar</button></router-link>
   </div>
@@ -15,7 +11,7 @@
 
 <script lang="ts">
 export default{
-  name: "Movimentacaoformcadastrar"
+  name:"Movimentacaoformcadastrar"
 }
 </script>
 
