@@ -1,8 +1,8 @@
 import axios, { AxiosInstance } from "axios";
 
-import { Modelo } from "../model/modelo";
-import { PageRequest } from "../model/page/page-request";
-import { PageResponse } from "../model/page/page-response";
+import { Modelo } from "@/model/modelo";
+import { PageRequest } from "@/model/page/page-request";
+import { PageResponse } from "@/model/page/page-response";
 
 export class ModeloClient { 
 
@@ -25,13 +25,13 @@ export class ModeloClient {
 
     public async listAll() : Promise<Modelo[]> {
         try {
-            return (await this.axiosClient.get<Modelo[]>(`/lista`)).data
+            return (await this.axiosClient.get<Modelo[]>(`/findAll`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async findByAtivo() : Promise<Modelo[]> {
+    public async findByActiveModel() : Promise<Modelo[]> {
         try {
             return (await this.axiosClient.get<Modelo[]>(`/ativo`)).data
         } catch (error : any) {
@@ -41,7 +41,7 @@ export class ModeloClient {
 
     public async cadastrar(modelo : Modelo) : Promise<void> {
         try {
-            return (await this.axiosClient.post('/', modelo))
+            return (await this.axiosClient.post('', modelo))
         } catch (error : any) {
             return Promise.reject(error.response)
         }
@@ -51,6 +51,14 @@ export class ModeloClient {
         try {
             return (await this.axiosClient.put(`/${modelo.id}`, modelo)).data
         } catch (error : any) {
+            return Promise.reject(error.response)
+        }
+    }
+
+    public async deletar(id: number): Promise<string> {
+        try {
+            return (await this.axiosClient.delete<string>(`/${id}`)).data
+        } catch (error:any) {
             return Promise.reject(error.response)
         }
     }

@@ -9,6 +9,6 @@ export class Condutor extends AbstractEntity{
     
     constructor(){
         super()
-        this.ativo = true
+        this.active = true
     }
 }

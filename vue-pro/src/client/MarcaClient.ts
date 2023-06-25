@@ -1,8 +1,8 @@
 import axios, { AxiosInstance } from "axios";
 
-import { Marca } from "../model/marca";
-import { PageRequest } from "../model/page/page-request";
-import { PageResponse } from "../model/page/page-response";
+import { Marca } from "@/model/marca";
+import { PageRequest } from "@/model/page/page-request";
+import { PageResponse } from "@/model/page/page-response";
 
 export class MarcaClient {
     
@@ -23,9 +23,9 @@ export class MarcaClient {
         }
     }
 
-    public async listAll() : Promise<Marca[]> {
+    public async findAll() : Promise<Marca[]> {
         try {
-            return (await this.axiosClient.get<Marca[]>(`/lista`)).data
+            return (await this.axiosClient.get<Marca[]>(`/findAll`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
@@ -41,23 +41,23 @@ export class MarcaClient {
 
     public async cadastrar(marca : Marca) : Promise<void> {
         try {
-            return (await this.axiosClient.post('/', marca))
+            return (await this.axiosClient.post(`/add`, marca))
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async editar(marca : Marca) : Promise<void> {
+    public async edit(id: number, marca: Marca) : Promise<void> {
         try {
-            return (await this.axiosClient.post(`/${marca.id}`, marca)).data
+            return (await this.axiosClient.put(`/edit?id=${id}`, marca)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async deletar(marca : Marca) : Promise<string> {
+    public async deletar(id : number) : Promise<string> {
         try {
-            return (await this.axiosClient.delete(`/${marca.id}`)).data
+            return (await this.axiosClient.delete(`/delete?id=${id}`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
@@ -77,3 +77,5 @@ export class MarcaClient {
         }
     }
 }
+
+export default new MarcaClient();

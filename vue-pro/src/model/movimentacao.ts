@@ -8,6 +8,6 @@ export class Movimentacao extends AbstractEntity {
     entrada! : Date
     constructor(){
         super()
-        this.ativo = true
+        this.active = true
     }
 }

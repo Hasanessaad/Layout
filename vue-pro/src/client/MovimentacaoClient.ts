@@ -1,8 +1,8 @@
 import axios, { AxiosInstance } from "axios";
 
-import { Movimentacao } from "../model/movimentacao";
-import { PageRequest } from "../model/page/page-request";
-import { PageResponse } from "../model/page/page-response";
+import { Movimentacao } from "@/model/movimentacao";
+import { PageRequest } from "@/model/page/page-request";
+import { PageResponse } from "@/model/page/page-response";
 
 export class MovimentacaoClient {
 

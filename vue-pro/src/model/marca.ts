@@ -1,10 +1,11 @@
 import { AbstractEntity } from "./abstract-entity";
 
 export class Marca extends AbstractEntity {
-    nome! : string
-
+    name! : string
     constructor(){
         super()
-        this.ativo = true
+        this.active = true
+        this.atualizacao = new Date()
+        this.cadastro = new Date()
     }
 }

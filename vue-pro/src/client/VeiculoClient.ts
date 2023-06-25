@@ -1,9 +1,8 @@
 import axios, { AxiosInstance } from "axios";
 
-import { Veiculo } from "../model/veiculo";
-import { PageRequest } from "../model/page/page-request";
-import { PageResponse } from "../model/page/page-response";
-import { Movimentacao } from "../model/movimentacao";
+import { Veiculo } from "@/model/veiculo";
+import { PageRequest } from "@/model/page/page-request";
+import { PageResponse } from "@/model/page/page-response";
 
 export class VeiculoClient {
 
@@ -24,7 +23,7 @@ export class VeiculoClient {
         }
     }
 
-    public async listAll() : Promise<Veiculo[]> {
+    public async findAll() : Promise<Veiculo[]> {
         try { 
             return (await this.axiosClient.get<Veiculo[]>(`/lista`)).data
         } catch (error : any) {
@@ -32,7 +31,7 @@ export class VeiculoClient {
         }
     }
 
-    public async findByAtivo() : Promise<Veiculo[]> {
+    public async findByActive() : Promise<Veiculo[]> {
         try {
             return (await this.axiosClient.get<Veiculo[]>(`/ativo`)).data
         } catch (error : any) {
@@ -48,7 +47,7 @@ export class VeiculoClient {
         }
     }
 
-    public async editar(veiculo : Veiculo) : Promise<void> {
+    public async edit(veiculo : Veiculo) : Promise<void> {
         try {
             return (await this.axiosClient.put(`/${veiculo.id}`, veiculo)).data
         } catch (error : any) {

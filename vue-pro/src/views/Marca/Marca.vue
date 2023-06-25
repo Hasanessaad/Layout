@@ -5,7 +5,7 @@
           <h1>Listar Marca</h1>
         </div>
         <div class="col-4">
-          <router-link to="/marcaformcadastrar"><button type="button" class="btn btn-primary btn-lg">Cadastrar</button></router-link>
+          <router-link to="/marcaformcadastrar"><button form="" type="button" class="btn btn-primary btn-lg">Cadastrar</button></router-link>
         </div>
       </div>
     </div>
@@ -22,27 +22,56 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Volkswagen</td>
-          <td>04/03/2015 12:46 p.m</td>
-          <td>sim</td>
-          <td>06/07/2017 4:03 p.m</td>
-          <td>    
-            <router-link :to="{name:'Marcaformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Marcaformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-          </td>  
+        <tr v-for="item in marcasList" :key="item.id">
+          <th scope="row">{{ item.id }}</th>
+          <th>{{ item.name }}</th>
+          <th>{{ item.cadastro }}</th>
+          <th class="col-md-2"> 
+              <span v-if="item.active==true" class="badge text-bg-success">SIM</span>
+              <span v-if="item.active==false" class="badge text-bg-danger">NAO</span>
+          </th>
+          <th>{{ item.atualizacao }}</th>
+          <th>    
+            <router-link type="button" :to="{name:'Marcaformedit', query: { id: item.id, form: 'edit' }}"><button submit="" class="choose">Editar</button></router-link>
+            <router-link type="button" :to="{name:'Marcaformexcluir', query: { id: item.id, form: 'deletar' }}"><button submit="" class="choose1">Deletar</button></router-link>
+          </th>  
         </tr>
       </tbody>
     </table>
   </template>
 
 <script lang="ts">
-  export default{
-    name:"Marca"
-  }
+import MarcaClient from '@/client/MarcaClient';
+import { Marca } from "@/model/marca";
+import { defineComponent } from 'vue';
+
+  export default defineComponent({
+    name:"Marca",
+    data() {
+      return {
+          marcasList: new Array<Marca>()
+      }
+    },
+    mounted() {
+      this.findAll();
+    },
+    methods: {
+      findAll() {
+        MarcaClient.findAll()
+          .then(sucess => {
+            this.marcasList = sucess
+            console.log(sucess);
+          })
+          .catch(error => {
+            console.log(error);
+        });
+      }
+    }
+  });
+  
 </script>
-  <style lang="css">
+
+<style lang="css">
   .container{
     margin-top: 20px;
   }
@@ -105,5 +134,4 @@ background-color: rgb(19, 6, 69);
   text-decoration: none;
   font-weight: bold;
 }
-
-  </style>
+</style>

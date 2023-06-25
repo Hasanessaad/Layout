@@ -7,6 +7,6 @@ export class Modelo extends AbstractEntity {
 
     constructor(){
         super()
-        this.ativo = true
+        this.active = true
     }
 }
