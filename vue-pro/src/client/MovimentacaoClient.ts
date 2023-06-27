@@ -17,13 +17,13 @@ export class MovimentacaoClient {
 
     public async findById(id : number) : Promise<Movimentacao> {
         try {
-            return (await this.axiosClient.get<Movimentacao>(`/${id}`)).data
+            return (await this.axiosClient.get<Movimentacao>(`/id?id=${id}`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async listAll() : Promise<Movimentacao[]> {
+    public async findAll() : Promise<Movimentacao[]> {
         try {
             return (await this.axiosClient.get<Movimentacao[]>(`/lista`)).data
         } catch (error : any) {
@@ -41,31 +41,23 @@ export class MovimentacaoClient {
 
     public async cadastrar(movimentacao : Movimentacao) : Promise<void> {
         try { 
-            return (await this.axiosClient.post('/', movimentacao))
+            return (await this.axiosClient.post(`/add`, movimentacao))
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async editar(movimentacao : Movimentacao) : Promise<void> {
+    public async edit(id : number , movimentacao : Movimentacao) : Promise<void> {
         try {
-            return (await this.axiosClient.put(`/${movimentacao.id}`, movimentacao)).data
+            return (await this.axiosClient.put(`/edit?id=${id}`, movimentacao)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async fecharMovimentacao(movimentacao : Movimentacao) : Promise<void> {
-        try { 
-            return (await this.axiosClient.put(`/saida/${movimentacao.id}`, movimentacao)).data
-        } catch (error : any) {
-            return Promise.reject(error.response)
-        }
-    }
-
-    public async deletar(movimentacao : Movimentacao) : Promise<string> {
+    public async deletar(id : number) : Promise<string> {
         try {
-            return (await this.axiosClient.delete(`/${movimentacao.id}`)).data
+            return (await this.axiosClient.delete(`/delete?id=${id}`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
@@ -87,3 +79,5 @@ export class MovimentacaoClient {
 
     
 }
+
+export default new MovimentacaoClient();

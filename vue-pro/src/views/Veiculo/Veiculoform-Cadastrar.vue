@@ -19,7 +19,7 @@
     <input v-if="form === 'deletar'" v-model="veiculo.id" type="text" class="form-control" placeholder="ID do veiculo" aria-label="nome" aria-describedby="button-addon2" required>
   </div>
 
-  <h5 v-if="form !== 'deletar'" class="labeling">ID e Nome da Modelo </h5>
+  <h5 v-if="form !== 'deletar'" class="labeling">ID e Nome do Modelo </h5>
   <select v-if="form !== 'deletar'" v-model="veiculo.modelId" class="form-select" >
     <option v-for="item in modelo" :value="item"> {{ item.id }}  {{ item.name }}  {{ item.ano }}</option>
   </select><!--selecting the id of the marca to add the model-->

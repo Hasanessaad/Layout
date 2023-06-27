@@ -3,9 +3,10 @@ import { Condutor } from "./condutor";
 import { Veiculo } from "./veiculo";
 
 export class Movimentacao extends AbstractEntity {
-    veiculoId! : Veiculo
-    condutorId! : Condutor
-    entrada! : Date
+    vehicleId! : Veiculo
+    conductorId! : Condutor
+    enter! : Date
+    exit! : Date
     constructor(){
         super()
         this.active = true,
