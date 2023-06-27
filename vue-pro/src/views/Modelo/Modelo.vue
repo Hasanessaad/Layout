@@ -29,7 +29,7 @@
           <th>{{ item.cadastro }}</th>
           <th class="col-md-2"> 
               <span v-if="item.active==true" class="badge text-bg-success">SIM</span>
-              <span v-if="item.active==false" class="badge text-bg-danger">NAO</span>
+              <span v-if="!item.active==false" class="badge text-bg-danger">NAO</span>
           </th>
           <td>{{ item.atualizacao }}</td>
           <td>    

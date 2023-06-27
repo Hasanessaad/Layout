@@ -1,3 +1,16 @@
-export enum Cor{
-    AZUL, AMARELO, VERMELHO, PRETO, CINZA, BRANCO, VERDE, LARANJA, ROXO
+export enum Color{
+    YELLOW,
+    BLUE,
+    WHITE,
+    GRAY,
+    GOLD,
+    BURGUNDY,
+    ORANGE,
+    BROWN,
+    SILVER,
+    BLACK,
+    PINK,
+    PURPLE,
+    GREEN,
+    RED
 }

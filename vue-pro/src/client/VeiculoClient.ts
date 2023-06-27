@@ -17,7 +17,7 @@ export class VeiculoClient {
 
     public async findById(id : number) : Promise<Veiculo> { 
         try {
-            return (await this.axiosClient.get<Veiculo>(`/${id}`)).data
+            return (await this.axiosClient.get<Veiculo>(`/id?id=${id}`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
@@ -25,7 +25,7 @@ export class VeiculoClient {
 
     public async findAll() : Promise<Veiculo[]> {
         try { 
-            return (await this.axiosClient.get<Veiculo[]>(`/lista`)).data
+            return (await this.axiosClient.get<Veiculo[]>(`/findAll`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
@@ -33,7 +33,7 @@ export class VeiculoClient {
 
     public async findByActive() : Promise<Veiculo[]> {
         try {
-            return (await this.axiosClient.get<Veiculo[]>(`/ativo`)).data
+            return (await this.axiosClient.get<Veiculo[]>(`/active`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
@@ -41,23 +41,23 @@ export class VeiculoClient {
 
     public async cadastrar(veiculo : Veiculo) : Promise<void> {
         try {
-            return (await this.axiosClient.post('/', veiculo))
+            return (await this.axiosClient.post(`/add`, veiculo))
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async edit(veiculo : Veiculo) : Promise<void> {
+    public async edit( id : number , veiculo : Veiculo ) : Promise<void> {
         try {
-            return (await this.axiosClient.put(`/${veiculo.id}`, veiculo)).data
+            return (await this.axiosClient.put(`/edit?id=${id}`, veiculo)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async deletar(veiculo : Veiculo) : Promise<string> {
+    public async deletar(id : number) : Promise<string> {
         try {
-            return (await this.axiosClient.delete(`/${veiculo.id}`)).data
+            return (await this.axiosClient.delete(`/delete?id=${id}`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
@@ -77,3 +77,4 @@ export class VeiculoClient {
         }
     }
 }
+export default new VeiculoClient();

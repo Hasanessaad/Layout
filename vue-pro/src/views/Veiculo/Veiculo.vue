@@ -24,29 +24,58 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>DEF-5678</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>01/02/2016 11:23 a.m</td>
-          <td>nao</td>
-          <td>13/09/2017 2:57 p.m</td>
-          <td>    
-            <router-link :to="{name:'Veiculoformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Veiculoformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-          </td>  
+        <tr v-for="item in veiculoList" :key="item.id">
+          <th scope="row">{{ item.id }}</th>
+          <th>{{ item.plate }}</th>
+          <th>{{ item.color }}</th>
+          <th>{{ item.type }}</th>
+          <th>{{ item.modelId.ano }}</th>
+          <th>{{ item.modelId.name }}</th>
+          <th>{{ item.cadastro }}</th>
+          <th class="col-md-2"> 
+              <span v-if="item.active==true" class="badge text-bg-success">SIM</span>
+              <span v-if="!item.active==false" class="badge text-bg-danger">NAO</span>
+          </th>
+          <th>{{ item.atualizacao }}</th>
+          <th>    
+            <router-link type="button" :to="{name:'Veiculoformedit', query: { id: item.id, form: 'edit' }}"><button submit="" class="choose">Editar</button></router-link>
+            <router-link type="button" :to="{name:'Veiculoformexcluir', query: { id: item.id, form: 'deletar' }}"><button submit="" class="choose1">Deletar</button></router-link>
+          </th>  
         </tr>
       </tbody>
     </table>
 </template>
 
 <script lang="ts">
-  export default{
-    name: "Veiculo"
-  }
+import  VeiculoClient  from '@/client/VeiculoClient';
+import { Veiculo } from '@/model/veiculo';
+import { defineComponent } from 'vue';
+
+  export default defineComponent({
+    name: "Veiculo",
+    data(){
+      return{
+        veiculoList : new Array<Veiculo>()
+      }
+    },
+    mounted(){
+      this.findAll();
+    },
+    methods:{
+      findAll(){
+        VeiculoClient.findAll()
+          .then(sucess => {
+          this.veiculoList = sucess
+          console.log(sucess);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      }
+    }
+  });
+    
+  
 </script>
 
 <style lang="css">

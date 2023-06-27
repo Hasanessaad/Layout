@@ -20,10 +20,10 @@
   <input type="number" v-if="form === 'deletar'" v-model="modelo.id" class="form-control" placeholder="ID"
     aria-label="Recipient's username" aria-describedby="button-addon2">
 
-  <h5 class="labeling"  v-if="form !== 'deletar'">Numero de ID da Marca</h5>
-  <select v-if="form !== 'deletar'" v-model="modelo.brandId" class="form-select" >
-    <option scope="row" v-for="item in marca" :key="item.id" :value="item"> {{ item.name }}</option>
-  </select>
+    <label class="form-label mt-3">Nome da Marca *</label>
+    <select v-if="form !== 'deletar'" v-model="modelo.brandId" class="form-select" >
+      <option v-for="item in marca" :value="item"> {{ item.id }} {{ item.name }}</option>
+    </select><!--selecting the id of the marca to add the model-->
 
   <h5 class="labeling" v-if="form !== 'deletar'">Nome do Modelo</h5>
   <div class="input-group mb-3">
@@ -47,9 +47,10 @@
 </template>
 
 <script lang="ts">
+import MarcaClient from '@/client/MarcaClient';
 import ModeloClient from '@/client/ModeloClient';
-import { Modelo } from "@/model/modelo";
 import { Marca } from '@/model/marca';
+import { Modelo } from "@/model/modelo";
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -57,13 +58,13 @@ export default defineComponent({
   data() {
     return {
       modelo: new Modelo(),
-      marca:new Array<Marca>(),
       mensagem: {
         active: true as boolean,
         titulo: "" as string,
         mensagem: "" as string,
         css: "" as string
-      }
+      },
+      marca: new Array<Marca>()
     }
   },
   computed: {
@@ -78,11 +79,21 @@ export default defineComponent({
     if (this.id !== undefined) {
       this.findById(Number(this.id));
     }
+    this.findAll();
   },
   methods: {
+    findAll() {
+            MarcaClient.findAll()
+                .then(sucess =>{
+                    this.marca = sucess;
+                })
+                .catch(Error =>{
+                    console.log(Error);
+                })
+        },
     onClickCadastrar() {
       console.log(this.modelo)
-      ModeloClient.cadastrar(this.modelo)
+      ModeloClient.cadastrar(this.modelo) // Access the brandId.id value
         .then(sucess => {
           this.modelo = new Modelo()
           console.log(sucess)
@@ -152,6 +163,9 @@ export default defineComponent({
 </script>
 
 <style>
+.pick{
+margin-bottom: 50px;
+}
 .labeling {
   display: flex;
   justify-content: flex-start;

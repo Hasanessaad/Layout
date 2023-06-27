@@ -1,14 +1,13 @@
 import { AbstractEntity } from "./abstract-entity";
-import { Cor } from "./color";
-import { Modelo } from "./modelo";
-import { Tipo } from "./tipo";
+import { Color } from "./color";
+import { Modelo } from "@/model/modelo";
+import { Type } from "./type";
 
 export class Veiculo extends AbstractEntity {
-    placa! : string
-    modeloId! : Modelo
-    cor! : Cor
-    tipo! : Tipo
-    ano! : number
+    plate! : string
+    modelId! : Modelo
+    color! : Color
+    type! : Type
 
     constructor(){
         super()

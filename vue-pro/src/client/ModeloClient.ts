@@ -3,7 +3,6 @@ import axios, { AxiosInstance } from "axios";
 import { Modelo } from "@/model/modelo";
 import { PageRequest } from "@/model/page/page-request";
 import { PageResponse } from "@/model/page/page-response";
-import { Marca } from "@/model/marca";
 
 export class ModeloClient { 
 
