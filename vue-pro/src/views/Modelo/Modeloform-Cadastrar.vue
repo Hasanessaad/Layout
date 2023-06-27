@@ -23,7 +23,7 @@
     <label class="form-label mt-3">Nome da Marca *</label>
     <select v-if="form !== 'deletar'" v-model="modelo.brandId" class="form-select" >
       <option v-for="item in marca" :value="item"> {{ item.id }} {{ item.name }}</option>
-    </select><!--selecting the id of the marca to add the model-->
+    </select><!--selecting the id of the marca (model marca) to add the model-->
 
   <h5 class="labeling" v-if="form !== 'deletar'">Nome do Modelo</h5>
   <div class="input-group mb-3">
@@ -47,9 +47,9 @@
 </template>
 
 <script lang="ts">
-import MarcaClient from '@/client/MarcaClient';
+import MarcaClient from '@/client/MarcaClient';//use this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 import ModeloClient from '@/client/ModeloClient';
-import { Marca } from '@/model/marca';
+import { Marca } from '@/model/marca';//use this!!!!!!!!!!!!!!!!!!
 import { Modelo } from "@/model/modelo";
 import { defineComponent } from 'vue';
 
@@ -64,7 +64,7 @@ export default defineComponent({
         mensagem: "" as string,
         css: "" as string
       },
-      marca: new Array<Marca>()
+      marca: new Array<Marca>()//use this!!!!!!!!!!!!!!!!!!!!!
     }
   },
   computed: {
@@ -79,18 +79,18 @@ export default defineComponent({
     if (this.id !== undefined) {
       this.findById(Number(this.id));
     }
-    this.findAll();
+    this.findAll();//USE THIS TOO!!!!!!!!!!!!!!!!!!!!!!!!!!!
   },
   methods: {
-    findAll() {
-            MarcaClient.findAll()
-                .then(sucess =>{
-                    this.marca = sucess;
-                })
-                .catch(Error =>{
-                    console.log(Error);
-                })
-        },
+    findAll() {//USE THIS inside methods of marca client 
+      MarcaClient.findAll()
+          .then(sucess =>{
+              this.marca = sucess;
+          })
+          .catch(Error =>{
+              console.log(Error);
+          })
+    },
     onClickCadastrar() {
       console.log(this.modelo)
       ModeloClient.cadastrar(this.modelo) // Access the brandId.id value

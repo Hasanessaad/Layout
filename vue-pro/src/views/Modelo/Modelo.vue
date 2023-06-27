@@ -23,8 +23,8 @@
       <tbody>
         <tr v-for="item in modelosList" :key="item.id">
           <th scope="row">{{ item.id }}</th>
-          <td>{{ item.name }}</td>
-          <td>{{ item.ano }}</td>
+          <th>{{ item.name }}</th>
+          <th>{{ item.ano }}</th>
           <th>{{ item.brandId.name }}</th>
           <th>{{ item.cadastro }}</th>
           <th class="col-md-2"> 

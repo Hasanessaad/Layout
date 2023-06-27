@@ -1,7 +1,7 @@
 <template>
     <div class="container text-center">
       <div class="row">
-        <div class="col-8"><h1>Listar veiculo</h1></div>
+        <div class="col-8"><h1>Listar Veiculo</h1></div>
         <div class="col-4">
           <router-link to="/veiculoformcadastrar"><button type="button" class="btn btn-primary btn-lg">Cadastrar</button></router-link>
         </div>

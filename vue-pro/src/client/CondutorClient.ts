@@ -10,22 +10,22 @@ export class ConductorClient {
 
     constructor(){
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:8082/api/condutor',
+            baseURL: 'http://localhost:8082/api/conductor',
             headers: {'Content-type' : 'application/json'}
         });
     }
 
     public async findById(id : number) : Promise<Condutor> {
         try {
-            return (await this.axiosClient.get<Condutor>(`/${id}`)).data
+            return (await this.axiosClient.get<Condutor>(`/id?id=${id}`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async listAll() : Promise<Condutor[]> {
+    public async findAll() : Promise<Condutor[]> {
         try {
-            return (await this.axiosClient.get<Condutor[]>(`/lista`)).data
+            return (await this.axiosClient.get<Condutor[]>(`/findAll`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
@@ -41,25 +41,25 @@ export class ConductorClient {
 
     public async cadastrar(condutor : Condutor) : Promise<void> {
         try {
-            return (await this.axiosClient.post('/', condutor))
+            return (await this.axiosClient.post(`/add`, condutor))
         } catch (error : any) {
             return Promise.reject(error.response)
         }
 
     }
 
-    public async editar(condutor : Condutor) : Promise<void> {
+    public async edit(id : number , condutor : Condutor) : Promise<void> {
         try {
-            return (await this.axiosClient.put(`/${condutor.id}`, condutor)).data
+            return (await this.axiosClient.put(`/edit?id=${id}`, condutor)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async deletar(condutor : Condutor) : Promise<string> {
+    public async deletar(id : number) : Promise<string> {
         try {
-            return (await this.axiosClient.delete(`/${condutor.id}`)).data
-        } catch (error : any) {
+            return (await this.axiosClient.delete(`/delete?id=${id}`)).data
+        } catch (error : any) { 
             return Promise.reject(error.response)
         }
     }
@@ -79,3 +79,5 @@ export class ConductorClient {
     
     } 
 }
+
+export default new ConductorClient();
