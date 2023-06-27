@@ -3,6 +3,7 @@ import axios, { AxiosInstance } from "axios";
 import { Modelo } from "@/model/modelo";
 import { PageRequest } from "@/model/page/page-request";
 import { PageResponse } from "@/model/page/page-response";
+import { Marca } from "@/model/marca";
 
 export class ModeloClient { 
 
@@ -17,13 +18,13 @@ export class ModeloClient {
 
     public async findById(id : number) : Promise<Modelo> { 
         try {
-            return (await this.axiosClient.get<Modelo>(`/${id}`)).data
+            return (await this.axiosClient.get<Modelo>(`/id?id=${id}`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async listAll() : Promise<Modelo[]> {
+    public async findAll() : Promise<Modelo[]> {
         try {
             return (await this.axiosClient.get<Modelo[]>(`/findAll`)).data
         } catch (error : any) {
@@ -41,15 +42,15 @@ export class ModeloClient {
 
     public async cadastrar(modelo : Modelo) : Promise<void> {
         try {
-            return (await this.axiosClient.post('', modelo))
+            return (await this.axiosClient.post(`/add`, modelo ))
         } catch (error : any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async editar(modelo : Modelo) : Promise<void> {
+    public async edit(id : number , modelo : Modelo ) : Promise<void> {
         try {
-            return (await this.axiosClient.put(`/${modelo.id}`, modelo)).data
+            return (await this.axiosClient.put(`/edit?id=${id}`, modelo )).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }
@@ -57,7 +58,7 @@ export class ModeloClient {
 
     public async deletar(id: number): Promise<string> {
         try {
-            return (await this.axiosClient.delete<string>(`/${id}`)).data
+            return (await this.axiosClient.delete<string>(`/delete?id=${id}`)).data
         } catch (error:any) {
             return Promise.reject(error.response)
         }
@@ -77,3 +78,4 @@ export class ModeloClient {
         }
     } 
 }
+export default new ModeloClient();

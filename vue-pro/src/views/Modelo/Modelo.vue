@@ -21,17 +21,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Golf</td>
-          <td>2016</td>
-          <td>Volkswagen</td>
-          <td>04/03/2015 12:46 p.m</td>
-          <td>sim</td>
-          <td>06/07/2017 4:03 p.m</td>
+        <tr v-for="item in modelosList" :key="item.id">
+          <th scope="row">{{ item.id }}</th>
+          <td>{{ item.name }}</td>
+          <td>{{ item.ano }}</td>
+          <th>{{ item.brandId.name }}</th>
+          <th>{{ item.cadastro }}</th>
+          <th class="col-md-2"> 
+              <span v-if="item.active==true" class="badge text-bg-success">SIM</span>
+              <span v-if="item.active==false" class="badge text-bg-danger">NAO</span>
+          </th>
+          <td>{{ item.atualizacao }}</td>
           <td>    
-            <router-link :to="{name:'Modeloformedit'}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link :to="{name:'Modeloformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
+            <router-link :to="{name:'Modeloformedit', query: { id: item.id, form: 'edit' }}"><button submit="" class="choose">Editar</button></router-link>
+            <router-link :to="{name:'Modeloformexcluir', query: { id: item.id, form: 'deletar' }}"><button submit="" class="choose1">Deletar</button></router-link>
           </td>
         </tr>
       </tbody>
@@ -39,9 +42,34 @@
 </template>
 
 <script lang="ts">
-  export default{
-      name: "Modelo"
-  }
+import ModeloClient from '@/client/ModeloClient';
+import { Modelo } from "@/model/modelo";
+import { defineComponent } from 'vue';
+
+  export default defineComponent({
+    name: "Modelo",
+    data() {
+      return {
+        modelosList: new Array<Modelo>()
+      }
+    },
+    mounted() {
+      this.findAll();
+    },
+    methods: {
+      findAll() {
+        ModeloClient.findAll()
+          .then(sucess => {
+            this.modelosList = sucess
+            console.log(sucess);
+          })
+          .catch(error => {
+            console.log(error);
+        });
+      }
+    }
+  });
+
 </script>
 
 <style lang="css">

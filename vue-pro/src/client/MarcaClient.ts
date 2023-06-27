@@ -17,7 +17,7 @@ export class MarcaClient {
 
     public async findById(id : number) : Promise<Marca> {
         try {
-            return (await this.axiosClient.get<Marca>(`/${id}`)).data
+            return (await this.axiosClient.get<Marca>(`/id?id=${id}`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }

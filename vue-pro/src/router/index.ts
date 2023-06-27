@@ -68,12 +68,12 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/marcaformedit',
         name:'Marcaformedit',
-        component: () => import(/* webpackChunkName: "marca" */'../views/Marca/Marcaform-cadastrar.vue')
+        component: () => import(/* webpackChunkName: "modelo" */'../views/Marca/Marcaform-cadastrar.vue')
       },
       {
         path:'/marcaformexcluir',
         name:'Marcaformexcluir',
-        component: () => import(/* webpackChunkName: "marca" */'../views/Marca/Marcaform-cadastrar.vue')
+        component: () => import(/* webpackChunkName: "modelo" */'../views/Marca/Marcaform-cadastrar.vue')
       }
     ]
   },
