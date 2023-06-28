@@ -114,8 +114,7 @@ export default defineComponent({
       MarcaClient.deletar(this.marca.id)
       .then(sucess => {
         this.marca = new Marca()
-        console.log(sucess);
-        this.$router.push({ name: 'marca-lista-view' });
+
       })
       .catch(error => {
         this.mensagem.active = true;
