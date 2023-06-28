@@ -22,27 +22,57 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>01/02/2016 11:23 a.m</td>          
-        <td>nao</td>
-        <td>13/09/2017 2:57 p.m</td>
-        <td>    
-          <router-link :to="{name:'Movimentacaoformedit'}"><button submit="" class="choose">Editar</button></router-link>
-          <router-link :to="{name:'Movimentacaoformexcluir'}"><button submit="" class="choose1">Deletar</button></router-link>
-        </td>  
-      </tr>
+        <tr v-for="item in movementList" :key="item.id">
+          <th scope="row">{{ item.id }}</th>
+          <th>{{ item.vehicleId.plate }}</th>
+          <th>{{ item.conductorId.name }}</th>
+          <th>{{ item.enter }}</th>
+          <th>{{ item.exit }}</th>
+          <th>{{ item.cadastro }}</th>
+          <th class="col-md-2"> 
+              <span v-if="item.active==true" class="badge text-bg-success">SIM</span>
+              <span v-if="!item.active==false" class="badge text-bg-danger">NAO</span>
+          </th>
+          <th>{{ item.atualizacao }}</th>
+          <th>    
+            <router-link type="button" :to="{name:'Veiculoformedit', query: { id: item.id, form: 'edit' }}"><button submit="" class="choose">Editar</button></router-link>
+            <router-link type="button" :to="{name:'Veiculoformexcluir', query: { id: item.id, form: 'deletar' }}"><button submit="" class="choose1">Deletar</button></router-link>
+          </th>  
+        </tr>
     </tbody>
   </table>
 </template>
 
 <script lang="ts">
-  export default{
-    name: "Movimentacao"
-  }
+import  MovimentacaoClient  from '@/client/MovimentacaoClient';
+import { Movimentacao } from "@/model/movimentacao";
+import { defineComponent } from 'vue';
+
+  export default defineComponent({
+    name: "Movimentacao",
+    data(){
+      return{
+        movementList : new Array<Movimentacao>()
+      }
+    },
+    mounted(){
+      this.findAll();
+    },
+    methods:{
+      findAll(){
+        MovimentacaoClient.findAll()
+          .then(sucess => {
+          this.movementList = sucess
+          console.log(sucess);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      }
+    }
+  });
+    
+
 </script>
 
 <style lang="css">
