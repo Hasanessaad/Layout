@@ -1,7 +1,22 @@
 <template>
   <h2>Cadastrar Movimentacao</h2>
   <hr>
+  <div v-if="mensagem.active" class="row">
+      <div class="col-md-12 text-start">
+        <div :class="mensagem.css" role="alert">
+          <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
   <h5 class="labeling">Entrada</h5>
+  <div class="input-group mb-3">
+    <input v-if="form !== 'deletar'" type="datetime-local" v-model="movimentacao.enter" class="form-control" placeholder="ID do veiculo" aria-label="nome" aria-describedby="button-addon2" required>
+  </div>
+  <h5 class="labeling">Saida</h5>
+  <div class="input-group mb-3">
+    <input v-if="form !== 'deletar'" type="datetime-local" v-model="movimentacao.exit" class="form-control" placeholder="ID do veiculo" aria-label="nome" aria-describedby="button-addon2" required>
+  </div>
   <div class="row">
     <h5 v-if="form !== 'deletar'" class="labeling">Placa do veiculo</h5>
     <div class="col-md-12 text-start">
@@ -15,7 +30,7 @@
         <option v-for="item in Condutor" :value="item"> {{ item.id }} {{ item.name }} </option>
       </select>
     </div>
-  </div>
+  </div>  
   <div class="input-group mb-3">
     <button class="btn btn-outline-secondary" type="button" v-if="form === undefined" @click="onClickCadastrar()"
       id="button-addon2">Adicionar</button>
@@ -23,7 +38,7 @@
       id="button-addon2">Editar</button>
     <button class="btn btn-outline-secondary" type="button" v-if="form === 'deletar'" @click="onClickDeletar()"
       id="button-addon2">Deletar</button>
-    <router-link to="/modelo"><button class="btn btn-outline-secondary" type="button"
+    <router-link to="/movimentacao"><button class="btn btn-outline-secondary" type="button"
         id="button-addon2">voltar</button></router-link>
   </div>
 </template>

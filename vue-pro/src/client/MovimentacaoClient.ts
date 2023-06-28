@@ -25,7 +25,7 @@ export class MovimentacaoClient {
 
     public async findAll() : Promise<Movimentacao[]> {
         try {
-            return (await this.axiosClient.get<Movimentacao[]>(`/lista`)).data
+            return (await this.axiosClient.get<Movimentacao[]>(`/findAll`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }

@@ -15,6 +15,7 @@
         <th scope="col">Condutor</th>
         <th scope="col">Veiculo</th>
         <th scope="col">Entrada</th>
+        <th scope="col">Saida</th>
         <th scope="col">cadastro</th>
         <th scope="col">ativo</th>
         <th scope="col">atualizacao</th>
@@ -31,12 +32,12 @@
           <th>{{ item.cadastro }}</th>
           <th class="col-md-2"> 
               <span v-if="item.active==true" class="badge text-bg-success">SIM</span>
-              <span v-if="!item.active==false" class="badge text-bg-danger">NAO</span>
+              <span v-if="item.active==false" class="badge text-bg-danger">NAO</span>
           </th>
           <th>{{ item.atualizacao }}</th>
           <th>    
-            <router-link type="button" :to="{name:'Veiculoformedit', query: { id: item.id, form: 'edit' }}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link type="button" :to="{name:'Veiculoformexcluir', query: { id: item.id, form: 'deletar' }}"><button submit="" class="choose1">Deletar</button></router-link>
+            <router-link type="button" :to="{name:'Movimentacaoformedit', query: { id: item.id, form: 'edit' }}"><button submit="" class="choose">Editar</button></router-link>
+            <router-link type="button" :to="{name:'Movimentacaoformexcluir', query: { id: item.id, form: 'deletar' }}"><button submit="" class="choose1">Deletar</button></router-link>
           </th>  
         </tr>
     </tbody>
