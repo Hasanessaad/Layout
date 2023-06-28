@@ -22,12 +22,28 @@ export class MovimentacaoClient {
             return Promise.reject(error.response)
         }
     }
+    
+    public async fecharMovimentacao(id : number) : Promise<string> {
+        try { 
+            return (await this.axiosClient.put<string>(`/sair/${id}`)).data
+        } catch (error : any) {
+            return Promise.reject(error.response)
+        }
+    }
 
     public async findAll() : Promise<Movimentacao[]> {
         try {
             return (await this.axiosClient.get<Movimentacao[]>(`/findAll`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
+        }
+    }
+    public async gerarRelatorio(): Promise<string> {
+        try {
+            const response = await this.axiosClient.get<string>('http://localhost:8082/relatorio/gerar');
+            return response.data;
+        } catch (error: any) {
+            return Promise.reject(error.response);
         }
     }
 

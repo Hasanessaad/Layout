@@ -148,7 +148,6 @@ export default defineComponent({
         .then(sucess => {
           this.modelo = new Modelo()
           console.log(sucess);
-          this.$router.push({ name: 'marca-lista-view' });
         })
         .catch(error => {
           this.mensagem.active = true;

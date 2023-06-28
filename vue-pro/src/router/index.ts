@@ -9,8 +9,32 @@ import Marcaformcadastrar from '../views/Marca/Marcaform-cadastrar.vue'
 import Condutorformcadastrar from '../views/Condutor/Condutorform-cadastrar.vue'
 import Movimentacaoformcadastrar from '../views/Movimentacao/Movimentacaoform-Cadastrar.vue'
 import Veiculoformcadastrar from '../views/Veiculo/Veiculoform-Cadastrar.vue'
+import Configuracao  from '../views/Configuracao/Configuracao.vue'
+
 
 const routes: Array<RouteRecordRaw> = [
+  {
+    path:"/configuracao",
+    name:"Configuracao",
+    component:Configuracao
+  },
+  {
+    path: '/configuracaoformcadastrar',
+    name: 'Configuracaoformcadastrar',
+    component: () => import('../views/Configuracao/Configuracaform-cadastrar.vue'),
+    children:[
+      {
+        path: '/configuracaoformedit',
+        name:'Configuracaoformedit',
+        component: () => import('../views/Configuracao/Configuracaform-cadastrar.vue')
+      },
+      {
+        path: '/configuracaoformexcluir',
+        name:'Configuracaoformexcluir',
+        component: () => import('../views/Configuracao/Configuracaform-cadastrar.vue')
+      }
+    ]
+  },
   {
     path: '/modelo',
     name: 'Modelo',
@@ -51,6 +75,11 @@ const routes: Array<RouteRecordRaw> = [
       {
         path:'/movimentacaoformexcluir',
         name:'Movimentacaoformexcluir',
+        component: () => import('../views/Movimentacao/Movimentacaoform-Cadastrar.vue')
+      },
+      {
+        path:'/movimentacaoformfinalizar',
+        name:'Movimentacaoformfinalizar',
         component: () => import('../views/Movimentacao/Movimentacaoform-Cadastrar.vue')
       }
     ]

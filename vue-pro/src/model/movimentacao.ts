@@ -7,10 +7,17 @@ export class Movimentacao extends AbstractEntity {
     conductorId! : Condutor
     enter! : Date
     exit! : Date
+    tempo! : number
+    tempoDesconto! : Date
+    tempoMulta! : Date
+    valorDesconto! : number
+    valorMulta! : number
+    valorTotal! : number
+    valorHora! : number
+    valorHoraMulta! : number
+
     constructor(){
         super()
-        this.active = true,
-        this.atualizacao = new Date()
-        this.cadastro = new Date()
+        this.active = true
     }
 }

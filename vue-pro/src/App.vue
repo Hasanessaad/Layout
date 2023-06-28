@@ -24,6 +24,9 @@
           <li class="nav-item">
             <router-link to="/condutor"><a class="nav-link active" aria-current="page"><h5 class="habibi">CONDUTOR</h5></a></router-link>
           </li>
+          <li class="nav-item">
+            <router-link to="/configuracao"><a class="nav-link active" aria-current="page"><h5 class="habibi">CONFIGURACAO</h5></a></router-link>
+          </li>
         </ul>
       </div>
     </div>

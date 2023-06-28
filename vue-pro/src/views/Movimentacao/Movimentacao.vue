@@ -1,9 +1,12 @@
 <template>
   <div class="container text-center">
     <div class="row">
-      <div class="col-8"><h1>Listar Movimentacao</h1></div>
+      <div class="col-8">
+        <h1>Listar Movimentacao</h1>
+      </div>
       <div class="col-4">
-        <router-link to="/movimentacaoformcadastrar"><button type="button" class="btn btn-primary btn-lg">Cadastrar</button></router-link>
+        <router-link to="/movimentacaoformcadastrar"><button type="button"
+            class="btn btn-primary btn-lg">Cadastrar</button></router-link>
       </div>
     </div>
   </div>
@@ -23,98 +26,113 @@
       </tr>
     </thead>
     <tbody>
-        <tr v-for="item in movementList" :key="item.id">
-          <th scope="row">{{ item.id }}</th>
-          <th>{{ item.vehicleId.plate }}</th>
-          <th>{{ item.conductorId.name }}</th>
-          <th>{{ item.enter }}</th>
-          <th>{{ item.exit }}</th>
-          <th>{{ item.cadastro }}</th>
-          <th class="col-md-2"> 
-              <span v-if="item.active==true" class="badge text-bg-success">SIM</span>
-              <span v-if="item.active==false" class="badge text-bg-danger">NAO</span>
-          </th>
-          <th>{{ item.atualizacao }}</th>
-          <th>    
-            <router-link type="button" :to="{name:'Movimentacaoformedit', query: { id: item.id, form: 'edit' }}"><button submit="" class="choose">Editar</button></router-link>
-            <router-link type="button" :to="{name:'Movimentacaoformexcluir', query: { id: item.id, form: 'deletar' }}"><button submit="" class="choose1">Deletar</button></router-link>
-          </th>  
-        </tr>
+      <tr v-for="item in movementList" :key="item.id">
+        <th scope="row">{{ item.id }}</th>
+        <th>{{ item.vehicleId.plate }}</th>
+        <th>{{ item.conductorId.name }}</th>
+        <th>{{ item.enter }}</th>
+        <th>{{ item.exit }}</th>
+        <th>{{ item.cadastro }}</th>
+        <th class="col-md-2">
+          <span v-if="item.active == true" class="badge text-bg-success">SIM</span>
+          <span v-if="item.active == false" class="badge text-bg-danger">NAO</span>
+        </th>
+        <th>{{ item.atualizacao }}</th>
+        <th>
+          <router-link type="button" :to="{ name: 'Movimentacaoformedit', query: { id: item.id, form: 'edit' } }"><button
+              submit="" class="choose">Editar</button></router-link>
+          <router-link type="button"
+            :to="{ name: 'Movimentacaoformexcluir', query: { id: item.id, form: 'deletar' } }"><button submit=""
+              class="choose1">Deletar</button></router-link>
+          <router-link type="button"
+           :to="{ name: 'Movimentacaoformfinalizar', query: { id: item.id, form: 'finalizar' } }"><button submit=""
+          class="choose1">Finalizar</button></router-link>
+        </th>
+      </tr>
     </tbody>
   </table>
 </template>
 
 <script lang="ts">
-import  MovimentacaoClient  from '@/client/MovimentacaoClient';
+import MovimentacaoClient from '@/client/MovimentacaoClient';
 import { Movimentacao } from "@/model/movimentacao";
 import { defineComponent } from 'vue';
 
-  export default defineComponent({
-    name: "Movimentacao",
-    data(){
-      return{
-        movementList : new Array<Movimentacao>()
-      }
-    },
-    mounted(){
-      this.findAll();
-    },
-    methods:{
-      findAll(){
-        MovimentacaoClient.findAll()
-          .then(sucess => {
+export default defineComponent({
+  name: "Movimentacao",
+  data() {
+    return {
+      movementList: new Array<Movimentacao>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+    findAll() {
+      MovimentacaoClient.findAll()
+        .then(sucess => {
           this.movementList = sucess
           console.log(sucess);
         })
         .catch(error => {
           console.log(error);
         });
-      }
     }
-  });
-    
+  }
+});
+
 
 </script>
 
 <style lang="css">
-  .container{
-    margin-top: 20px;
-  }
-  .btn-options{
-    width: 800px;
-  }
-  .col-8{
+.container {
+  margin-top: 20px;
+}
+
+.btn-options {
+  width: 800px;
+}
+
+.col-8 {
   display: flex;
   align-items: center;
   justify-content: center;
-  }
-  .put{
-    width: 750px;
-    height: 40px;
-  }
-  .op-btn{
-    margin-left: 10px;
-  }
-  .choose1{
+}
+
+.put {
+  width: 750px;
+  height: 40px;
+}
+
+.op-btn {
+  margin-left: 10px;
+}
+
+.choose1 {
   color: aliceblue;
   background-color: red;
-  border:none;
+  border: none;
   border-radius: 6px;
   font-weight: bold;
   height: 30px;
   transition: all 0.35s 0s;
 }
-.choose1:hover{
+
+.choose1:hover {
   font-size: larger;
 }
-.option{
-background-color: rgb(19, 6, 69);
+
+.option {
+  background-color: rgb(19, 6, 69);
 }
-.ayo{
+
+.ayo {
   padding-top: 5px;
   color: aliceblue;
 }
-.op{
+
+.op {
   height: 30px;
   width: 100px;
   border-radius: 5px;
@@ -123,20 +141,22 @@ background-color: rgb(19, 6, 69);
   background-color: rgb(0, 45, 194);
   border: none;
 }
-.choose{
+
+.choose {
   color: black;
-  border:none;
+  border: none;
   border-radius: 6px;
   font-weight: bold;
   height: 30px;
   transition: all 0.35s 0s;
 }
-.choose:hover{
+
+.choose:hover {
   font-size: larger;
 }
-.enter{
+
+.enter {
   color: black;
   text-decoration: none;
   font-weight: bold;
-}
-</style>
+}</style>

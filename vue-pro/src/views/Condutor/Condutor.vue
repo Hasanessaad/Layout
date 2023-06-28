@@ -18,8 +18,6 @@
         <th scope="col">Nome</th>
         <th scope="col">CPF</th>
         <th scope="col">Telefone</th>
-        <th scope="col">Tempo_pago</th>
-        <th scope="col">Tempo_desconto</th>
         <th scope="col">cadastro</th>
         <th scope="col">ativo</th>
         <th scope="col">atualizacao</th>
@@ -33,9 +31,7 @@
         <th>{{ item.name }}</th>
         <th>{{ item.cpf }}</th>
         <th>{{ item.telephone }}</th>
-        <th>{{ item.payedTime }}</th>
-        <th>{{ item.telephone }}</th>
-        <th>{{ item.cutTime }}</th>
+        <td>{{ item.cadastro }} </td>
         <th class="col-md-2">
           <span v-if="item.active == true" class="badge text-bg-success">SIM</span>
           <span v-if="item.active == false" class="badge text-bg-danger">NAO</span>

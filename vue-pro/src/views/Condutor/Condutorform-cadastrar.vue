@@ -116,8 +116,6 @@ export default defineComponent({
       ConductorClient.deletar(this.condutor.id)
         .then(sucess => {
           this.condutor = new Condutor()
-          console.log(sucess);
-          this.$router.push({ name: 'marca-lista-view' });
         })
         .catch(error => {
           this.mensagem.active = true;
